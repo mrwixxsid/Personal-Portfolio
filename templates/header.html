@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'home' as home %}
     <!-- Preloader
     ================================================== --> 
     <div class="preloader">
@@ -19,7 +20,7 @@
                     <div class="header-left-block dark">  
                         <!-- Site Branding -->
                         <div class="site-branding">
-                            <a href="index.html"><img src="{% static '/images/logo.png' %}" alt="Site Logo" /></a>
+                            <a href="{% url 'home' %}"><img src="{% static '/images/logo.png' %}" alt="Site Logo" /></a>
                         </div><!--  /.site-branding -->
                         
                         <!-- Site Navigation -->
@@ -42,16 +43,16 @@
                                     <div class="menu-content">
                                         <ul class="mainmenu">         
                                             <li>
-                                                <a href="#service-block">Service</a>
+                                                <a href=" {% url 'home' %}#service-block">Service</a>
                                             </li>
                                             <li>
-                                                <a href="#about-block">About</a>
+                                                <a href="{% url 'home' %}#about-block">About</a>
                                             </li>                                    
                                             <li>
-                                                <a href="#portfolio-block">Works</a>
+                                                <a href="{% url 'home' %}#portfolio-block">Works</a>
                                             </li>
                                             <li>
-                                                <a href="#blog-block">Blog</a>
+                                                <a href="{% url 'home' %}#blog-block">Blog</a>
                                             </li>
                                             <li>
                                                 <a href="#contact-block">Contact</a>
@@ -74,9 +75,9 @@
                         </div><!--  /.call-block -->
                         <div class="social-block">
                             <ul>
-                                <li><a href="https://www.facebook.com/wixxsid.py/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://twitter.com/pyprogramming_"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/wixxsid.py/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://twitter.com/pyprogramming_" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram" target="_blank"></i></a></li>
                             </ul>
                         </div><!--  /.social-block -->
                     </div><!--  /.header-right-block -->
