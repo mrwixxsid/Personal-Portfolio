@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Blog Page Block
+    ================================================== -->
+    <section class="blog-page-block bg-black-russian-3 pd-t-150 pd-b-105">
+        <div class="container">
+            <!-- Title Row -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <h2 class="title-main color-white">Our Blog</h2><!-- /.title-main -->
+                    </div><!--  /.section-title -->
+                </div><!--  /.col-12 -->
+            </div><!--  /.row -->
+
+            <!-- Content Row -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Blog Items -->
+                    <div class="blog-latest-items dark">
+
+                    {% for post in queryset %}
+                     <article class="post">
+                            <figure class="post-thumb">
+                                <a href="blog-single-dark.html">
+                                    <img src="{{ post.thumbnail.url }}" alt="Post Image" />
+                                </a>
+                            </figure><!--  /.post-thumb -->
+                            <div class="post-details">                            
+                                <h2 class="entry-title"><a href="{{ post.get_absolute_url }}"> {{ post.title}} </a></h2><!--  /.entry-title -->
+                                <div class="entry-content">
+                                    <p> {{ post.short_description }}
+                                    <a href="{{ post.get_absolute_url }}" class="more-link">Read More <i class="fa fa-arrow-right"></i></a></p>
+                                </div><!--  /.entry-content -->
+                            </div><!--  /.post-details -->
+                        </article><!--  /.post -->
+                        {% endfor %}
+
+                        <div class="pagination-block">
+                            <ul class="pagination">
+                                {% if queryset.has_previous %}
+                                <li class="nav-next"><a href="?{{ page_request_ver }}={{ queryset.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+                                {% endif %}
+                                <li class="active"><a class="page-numbers" href="?{{ page_request_ver }}={{ queryset.number }}">{{ queryset.number }}</a></li>
+                                {% if queryset.has_next %}
+                                <li class="nav-next"><a href="?{{ page_request_ver }}={{ queryset.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                    </div><!--  /.blog-latest-items -->
+                </div><!--  /.col-lg-8 -->
+
+                <div class="col-lg-4">
+                    <!-- Sidebar Items -->
+                    <div class="sidebar-items dark">
+                        <div class="widget widget_ads">
+                            <h4 class="widget-title">
+                                <span class="text">Add Widget</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+                            <div class="widget-content">
+                                <a href="#"><img src="{% static '/images/blog/blog-add.jpg' %}" alt="Blog Add" /></a>
+                            </div><!--  /.widget-content -->
+                        </div><!--  /.widget -->
+
+                        <div class="widget widget_categories">
+                            <h4 class="widget-title">
+                                <span class="text">Categories</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+                            <ul>
+                                {% for cat in category_count %}
+                                <li><a href="#"> {{ cat.categories__title }} <span class="count">{{ cat.categories__title__count }}</span></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="widget widget_gallery">
+                            <h4 class="widget-title">
+                                <span class="text">Our Gallery</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+
+                            <div class="gallery-content">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static '/images/blog/blog-widget-gallery-1.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static '/images/blog/blog-widget-gallery-2.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->                  
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static '/images/blog/blog-widget-gallery-3.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static '/images/blog/blog-widget-gallery-4.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                </div><!--  /.row -->
+                            </div><!--  /.gallery -->
+                        </div><!--  /.widget -->
+
+                        <div class="widget widget_tagclouds">
+                            <h4 class="widget-title">
+                                <span class="text">Tag Clouds</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+
+                            <div class="tagcloud">
+                                <a href="#">Django</a>
+                                <a href="#">Flask</a>
+                                <a href="#">portfolio</a>
+                                <a href="#">gallery</a>
+                                <a href="#">Web</a>
+                            </div><!--  /.tagcloud -->
+                        </div><!--  /.widget -->
+                    </div><!--  /.sidebar-items -->
+                </div><!--  /.col-lg-4 -->
+            </div><!--  /.row -->
+        </div><!--  /.container -->
+    </section><!--  /.blog-page-block -->
+
+    {% endblock %}

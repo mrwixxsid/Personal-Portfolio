@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <!-- Blog Page Block
+    ================================================== -->
+    <div class="blog-page-block bg-black-russian-3 pd-t-220 pd-b-105">
+        <div class="container">
+            <!-- Content Row -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Blog Items -->
+                    <div class="blog-latest-items blog-single-page dark">
+                        <article class="post">
+                            <figure class="post-thumb">
+                                <a href="#">
+                                    <img src="{{ post.thumbnail.url }}" alt="Blog Image" />
+                                </a>
+                            </figure><!--  /.post-thumb -->
+                            <div class="post-details">                            
+                                <ul class="entry-meta remove-broswer-defult">
+                                    <li class="entry-date"><i class="fa fa-calendar"></i>{{ post.timestamp | timesince }} ago</li>
+                                    {% comment %} <li class="time-need"><i class="far fa-clock"></i> 15 Minute to read</li> {% endcomment %}
+                                    <li class="entry-category"><i class="fa fa-sitemap"></i> 
+                                    {% for cat in post.categories.all %}
+                                    <a href="#">{{ cat }}</a>,
+                                    {% endfor %}
+                                    </li>
+
+                                </ul>
+                                <h2 class="entry-title"><a href="#">{{ post.title }}</a></h2><!--  /.entry-title -->
+                                <div class="entry-content">
+                                   {{ post.contents | safe }}
+                                </div><!--  /.entry-content -->
+                                {% comment %} <div class="entry-tag mrt-15">
+                                    <a href="#">wordpress</a>
+                                    <a href="#">coding</a>
+                                    <a href="#">app</a>
+                                    <a href="#">design</a>
+                                </div><!--  /.entry-tag --> {% endcomment %}
+                            </div><!--  /.post-details -->
+                        </article><!--  /.post -->
+                        
+                        <div id="comments" class="comments-area">
+                            <div class="comments-main-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="comments-title">04 Comments</h3><!--/.comments-title-->
+                                    </div><!--/.col-md-12-->
+                                </div><!--/.row-->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <ol class="comment-list">
+                                            <li class="comment">
+                                                <div class="comment-body">
+                                                    <div class="comment-meta">
+                                                        <div class="comment-author vcard">
+                                                            <div class="author-img">
+                                                                <img alt="" src="assets/images/client/3.png" class="avatar photo">
+                                                            </div>
+                                                        </div><!--/.comment-author-->
+                                                        <div class="comment-metadata"><b class="author">Johan Doe</b>
+                                                            <span class="date">10:35 pm, 17 jan 2018</span>
+                                                        </div><!--/.comment-metadata-->
+                                                    </div><!--/.comment-meta-->
+                                                    <div class="comment-details">
+                                                        <div class="comment-content">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras et ma uriseg haset lorem ultricies ferm entum ras vitae nibh nisl. Forem ipsum dolorsit amet. </p>
+                                                        </div><!--/.comment-content-->
+                                                        <a href="#" class="comment-reply-link">Reply </a>
+                                                    </div><!-- /.comment-details-->
+                                                </div><!--/.comment-body-->
+                                                <ol class="children">
+                                                    <li class="comment">
+                                                        <div class="comment-body">
+                                                            <div class="comment-meta">
+                                                                <div class="comment-author vcard">
+                                                                    <div class="author-img">
+                                                                        <img alt="" src="assets/images/client/4.png" class="avatar photo">
+                                                                    </div>
+                                                                </div><!--/.comment-author-->
+                                                                 <div class="comment-metadata"><b class="author">Tortoiz Shail</b>
+                                                                    <span class="date">10:35 pm, 17 jan 2018</span>
+                                                                </div><!--/.comment-metadata-->
+                                                            </div><!--/.comment-meta-->
+                                                            <div class="comment-details">
+                                                                <div class="comment-content">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras et ma uriseg haset lorem ultricies ferm entum ras vitaenibh nisl. Forem ipsum dolor sit amet. </p>
+                                                                </div><!--/.comment-content-->
+                                                                <a href="#" class="comment-reply-link">Reply </a>
+                                                            </div><!-- /.comment-details-->
+                                                        </div><!--/.comment-body-->
+                                                    </li><!--/.comment-->
+                                                </ol><!--/.children-->
+                                            </li><!--/.comment-body-->
+                                            <li class="comment">
+                                                <div class="comment-body">
+                                                    <div class="comment-meta">
+                                                        <div class="comment-author vcard">
+                                                            <div class="author-img">
+                                                                <img alt="" src="assets/images/client/5.png" class="avatar photo">
+                                                            </div>
+                                                        </div><!--/.comment-author-->
+                                                        <div class="comment-metadata"><b class="author">Johan Smith</b>
+                                                            <span class="date">10:35 pm, 17 jan 2018</span>
+                                                        </div><!--/.comment-metadata-->
+                                                    </div><!--/.comment-meta-->
+                                                    <div class="comment-details">
+                                                        <div class="comment-content">
+                                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae nibh nisl. Cras et ma uriseg haset lorem ultricies ferm entum ras vitae nibh nisl. Forem ipsum dolorsit amet. </p>
+                                                        </div><!--/.comment-content-->
+                                                        <a href="#" class="comment-reply-link">Reply </a>
+                                                    </div><!-- /.comment-details-->
+                                                </div><!--/.comment-body-->
+                                            </li><!--/.comment-body-->
+                                        </ol><!--/.comment-list-->
+                                    </div><!--/.col-md-12-->
+                                </div><!--/.row-->
+                            </div><!-- /.comments-main-content -->
+                        </div><!-- /.comments-area -->
+
+                        <div class="comment-respond">
+                            <form method="POST" action="." class="comment-form">
+                             {% csrf_token %}
+                                <h3 class="comment-reply-title">Comment Here</h3>
+                                <div class="row">
+                             {{ form }}
+                                    <div class="col-md-12">
+                                        <label>Your Comments</label>
+                                        <textarea class="form-control" rows="4" cols="50"></textarea>
+                                    </div><!-- /.col-md-12 -->
+                                    <div class="form-submit clearfix">
+                                        <input type="submit" value="Post Comment" class="btn submit">
+                                    </div><!-- /.subimt -->
+                                </div><!-- /.row -->
+                            </form>
+                        </div>
+                    </div><!--  /.blog-latest-items -->
+                </div><!--  /.col-lg-8 -->
+
+                <div class="col-lg-4">
+                    <!-- Sidebar Items -->
+                    <div class="sidebar-items dark">
+                        <div class="widget widget_ads">
+                            <h4 class="widget-title">
+                                <span class="text">Add Widget</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+                            <div class="widget-content">
+                                <a href="#"><img src="assets/images/blog/blog-add.jpg" alt="Blog Add" /></a>
+                            </div><!--  /.widget-content -->
+                        </div><!--  /.widget -->
+
+                        <div class="widget widget_categories">
+                            <h4 class="widget-title">
+                                <span class="text">Categories</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+                            <ul>
+                                {% for cat in category_count %}
+                                <li><a href="#"> {{ cat.categories__title }} <span class="count">{{ cat.categories__title__count }}</span></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="widget widget_gallery">
+                            <h4 class="widget-title">
+                                <span class="text">Our Gallery</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+
+                            <div class="gallery-content">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static 'assets/images/blog/blog-widget-gallery-1.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static 'assets/images/blog/blog-widget-gallery-2.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->                  
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static 'assets/images/blog/blog-widget-gallery-3.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                    <div class="col-6">
+                                        <a href="#"><img src="{% static 'assets/images/blog/blog-widget-gallery-4.jpg' %}" alt="Gallery Image" /></a>
+                                    </div><!--  /.col-6 -->
+                                </div><!--  /.row -->
+                            </div><!--  /.gallery -->
+                        </div><!--  /.widget -->
+
+                        <div class="widget widget_tagclouds">
+                            <h4 class="widget-title">
+                                <span class="text">Tag Clouds</span>
+                                <span class="large-border bg-deep-cerise"></span>
+                                <span class="small-border bg-white"></span>
+                                <span class="small-border bg-white"></span>
+                            </h4><!--  /.widget-title -->
+
+                            <div class="tagcloud">
+                                <a href="#">WordPress</a>
+                                <a href="#">agency</a>
+                                <a href="#">portfolio</a>
+                                <a href="#">gallery</a>
+                                <a href="#">news</a>
+                            </div><!--  /.tagcloud -->
+                        </div><!--  /.widget -->
+                    </div><!--  /.sidebar-items -->
+                </div><!--  /.col-lg-4 -->
+            </div><!--  /.row -->
+        </div><!--  /.container -->
+    </div><!--  /.blog-page-block -->
+
+    {% endblock %}
