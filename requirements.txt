@@ -1,7 +1,7 @@
 asgiref==3.3.1
 astroid==2.4.2
 autopep8==1.5.4
-Django==3.1.4
+Django==4.2.4
 django-debug-toolbar==3.2
 django-tinymce==3.2.0
 isort==5.7.0
